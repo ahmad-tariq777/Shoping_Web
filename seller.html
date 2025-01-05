@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Section</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Seller Form Section -->
+<div class="seller-section">
+  <h2>Add a Product</h2>
+  <form id="productForm">
+    <label for="category">Category:</label>
+    <select id="category">
+      <option value="men">Men</option>
+      <option value="women">Women</option>
+      <option value="kids">Kids</option>
+    </select>
+    
+    <label for="subcategory">Subcategory:</label>
+    <select id="subcategory">
+      <!-- Subcategories dynamically populated by JavaScript based on category selection -->
+    </select>
+
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" required>
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" required>
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" required>
+
+    <label for="image">Product Image URL:</label>
+    <input type="url" id="image" required>
+
+    <button type="submit">Add Product</button>
+  </form>
+</div>
+
+<!-- Product Display Section -->
+<div class="product-display">
+  <h2>Product Catalog</h2>
+  <div id="men" class="category-section">
+    <h3>Men</h3>
+    <div class="subcategory" id="men-t-shirts"></div>
+    <div class="subcategory" id="men-hoodies"></div>
+    <div class="subcategory" id="men-formal"></div>
+    <div class="subcategory" id="men-shoes"></div>
+  </div>
+  
+  <div id="women" class="category-section">
+    <h3>Women</h3>
+    <div class="subcategory" id="women-dress"></div>
+    <div class="subcategory" id="women-shoes"></div>
+    <div class="subcategory" id="women-accessories"></div>
+  </div>
+  
+  <div id="kids" class="category-section">
+    <h3>Kids</h3>
+    <div class="subcategory" id="kids-full-suits"></div>
+    <div class="subcategory" id="kids-pants"></div>
+    <div class="subcategory" id="kids-jackets-sweatshirts"></div>
+    <div class="subcategory" id="kids-t-shirts"></div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const categoryData = {
+    men: ["T-Shirts", "Hoodies", "Formal", "Shoes"],
+    women: ["Dress", "Shoes", "Accessories"],
+    kids: ["Full Suits", "Pants", "Jackets & Sweatshirts", "T-Shirts"]
+  };
+
+  const form = document.getElementById("productForm");
+  const categorySelect = document.getElementById("category");
+  const subcategorySelect = document.getElementById("subcategory");
+
+  // Populate subcategory options based on selected category
+  categorySelect.addEventListener("change", () => {
+    const selectedCategory = categorySelect.value;
+    subcategorySelect.innerHTML = "";
+
+    categoryData[selectedCategory].forEach(subcat => {
+      const option = document.createElement("option");
+      option.value = subcat.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-");
+      option.textContent = subcat;
+      subcategorySelect.appendChild(option);
+    });
+  });
+
+  // Trigger change to populate initial subcategories
+  categorySelect.dispatchEvent(new Event("change"));
+
+  // Form submission handler to add product
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const category = categorySelect.value;
+    const subcategory = subcategorySelect.value;
+    const productName = document.getElementById("productName").value;
+    const title = document.getElementById("title").value;
+    const price = document.getElementById("price").value;
+    const imageUrl = document.getElementById("image").value;
+
+    // Create product card
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.innerHTML = `
+      <img src="${imageUrl}" alt="${productName}">
+      <h4>${productName}</h4>
+      <p>${title}</p>
+      <p>Price: $${price}</p>
+    `;
+
+    // Add product to the selected subcategory section
+    document.getElementById(`${category}-${subcategory}`).appendChild(productCard);
+
+    form.reset(); // Clear form fields
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const categoryData = {
+    men: ["T-Shirts", "Hoodies", "Formal", "Shoes"],
+    women: ["Dress", "Shoes", "Accessories"],
+    kids: ["Full Suits", "Pants", "Jackets & Sweatshirts", "T-Shirts"]
+  };
+
+  const form = document.getElementById("productForm");
+  const categorySelect = document.getElementById("category");
+  const subcategorySelect = document.getElementById("subcategory");
+
+  // Populate subcategory options based on selected category
+  categorySelect.addEventListener("change", () => {
+    const selectedCategory = categorySelect.value;
+    subcategorySelect.innerHTML = "";
+
+    categoryData[selectedCategory].forEach(subcat => {
+      const option = document.createElement("option");
+      option.value = subcat.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-");
+      option.textContent = subcat;
+      subcategorySelect.appendChild(option);
+    });
+  });
+
+  // Trigger change to populate initial subcategories
+  categorySelect.dispatchEvent(new Event("change"));
+
+  // Form submission handler to add product
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const category = categorySelect.value;
+    const subcategory = subcategorySelect.value;
+    const productName = document.getElementById("productName").value;
+    const title = document.getElementById("title").value;
+    const price = document.getElementById("price").value;
+    const imageUrl = document.getElementById("image").value;
+
+    // Create product card
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.innerHTML = `
+      <img src="${imageUrl}" alt="${productName}">
+      <h4>${productName}</h4>
+      <p>${title}</p>
+      <p>Price: $${price}</p>
+    `;
+
+    // Add product to the selected subcategory section
+    document.getElementById(`${category}-${subcategory}`).appendChild(productCard);
+
+    form.reset(); // Clear form fields
+  });
+});
+
+</script>
+<style>
+ /* Universal and Background Color */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5DC;
+}
+
+/* Form Container */
+.seller-section {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  color: #C8AE7E;
+}
+
+.seller-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #d2bd96;
+}
+
+/* Form Styling */
+form label, form input, form select, form button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+form input, form select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+form input:focus, form select:focus {
+  border-color: #C8AE7E;
+  box-shadow: 0 0 8px rgba(200, 174, 126, 0.3);
+}
+
+/* Submit Button */
+form button {
+  padding: 10px;
+  background-color: #d2bd96;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #C8AE7E;
+}
+
+/* Product Display Section */
+.product-display {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.category-section h3 {
+  font-size: 22px;
+  color: #C8AE7E;
+  margin-bottom: 15px;
+}
+
+/* Product Cards */
+.subcategory {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  width: 200px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  color: #333;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-card h4 {
+  font-size: 18px;
+  color: #d2bd96;
+  margin-bottom: 8px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.seller-section, .product-display {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+</style>
+</body>
+</html>

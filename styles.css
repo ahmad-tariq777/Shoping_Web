@@ -1,0 +1,1164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    margin: 0;
+    background-color: #F5F5DC;
+    color: #eee;
+    font-family: Poppins;
+    font-size: 12px;
+}
+a{
+    text-decoration: none;
+}
+header{
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+header a{
+    color: #eee;
+    margin-right: 40px;
+}
+/* carousel */
+.carousel{
+    height: 100vh;
+    margin-top: -50px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+.carousel .list .item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0 0 0 0;
+}
+.carousel .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel .list .item .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+.carousel .list .item .author{
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+.carousel .list .item .title
+{
+    color: #d2bd96;
+    font-weight: bold;
+    font-size: 5em;
+}
+.carousel .list .item .topic{
+    font-size: 5em;
+    font-weight: bold;
+    line-height: 1.3em;
+}
+.carousel .list .item .title{
+    color: #f1683a;
+}
+
+.carousel .list .item .buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+.carousel .list .item .buttons button{
+    border: none;
+    background-color: #eee;
+    letter-spacing: 3px;
+    font-family: Poppins;
+    font-weight: 500;
+}
+.carousel .list .item .buttons button:nth-child(2){
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #eee;
+}
+/* thumbail */
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+.thumbnail .item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+}
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.thumbnail .item .content{
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+.thumbnail .item .content .title{
+    font-weight: 500;
+}
+.thumbnail .item .content .description{
+    font-weight: 300;
+}
+/* arrows */
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+}
+.arrows button:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+/* animation */
+.carousel .list .item:nth-child(1){
+    z-index: 1;
+}
+
+/* animation text in first item */
+
+.carousel .list .item:nth-child(1) .content .author,
+.carousel .list .item:nth-child(1) .content .title,
+.carousel .list .item:nth-child(1) .content .topic,
+.carousel .list .item:nth-child(1) .content .des,
+.carousel .list .item:nth-child(1) .content .buttons
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+@keyframes showContent{
+    to{
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+.carousel .list .item:nth-child(1) .content .title{
+    animation-delay: 1.2s!important;
+}
+.carousel .list .item:nth-child(1) .content .topic{
+    animation-delay: 1.4s!important;
+}
+.carousel .list .item:nth-child(1) .content .des{
+    animation-delay: 1.6s!important;
+}
+.carousel .list .item:nth-child(1) .content .buttons{
+    animation-delay: 1.8s!important;
+}
+/* create animation when next click */
+.carousel.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: showImage .5s linear 1 forwards;
+}
+@keyframes showImage{
+    to{
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.carousel.next .thumbnail .item:nth-last-child(1){
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.carousel.prev .list .item img{
+    z-index: 100;
+}
+@keyframes showThumbnail{
+    from{
+        width: 0;
+        opacity: 0;
+    }
+}
+.carousel.next .thumbnail{
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext{
+    from{
+        transform: translateX(150px);
+    }
+}
+
+/* running time */
+
+.carousel .time{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 3px;
+    background-color: #f1683a;
+    left: 0;
+    top: 0;
+}
+
+.carousel.next .time,
+.carousel.prev .time{
+    animation: runningTime 3s linear 1 forwards;
+}
+@keyframes runningTime{
+    from{ width: 100%}
+    to{width: 0}
+}
+
+
+/* prev click */
+
+.carousel.prev .list .item:nth-child(2){
+    z-index: 2;
+}
+
+.carousel.prev .list .item:nth-child(2) img{
+    animation: outFrame 0.5s linear 1 forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+@keyframes outFrame{
+    to{
+        width: 150px;
+        height: 220px;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 20px;
+    }
+}
+
+.carousel.prev .thumbnail .item:nth-child(1){
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.carousel.next .arrows button,
+.carousel.prev .arrows button{
+    pointer-events: none;
+}
+.carousel.prev .list .item:nth-child(2) .content .author,
+.carousel.prev .list .item:nth-child(2) .content .title,
+.carousel.prev .list .item:nth-child(2) .content .topic,
+.carousel.prev .list .item:nth-child(2) .content .des,
+.carousel.prev .list .item:nth-child(2) .content .buttons
+{
+    animation: contentOut 1.5s linear 1 forwards!important;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 678px) {
+    .carousel .list .item .content{
+        padding-right: 0;
+    }
+    .carousel .list .item .content .title{
+        font-size: 30px;
+    }
+}
+/* Product Grid */
+h2 {
+    font-family: 'Montserrat', sans-serif; /* Stylish, modern font */
+    font-size: 2em;
+    font-weight: 600;
+    color: #C8AE7E; /* Matching with your navigation bar color */
+    text-align: center;
+    margin: 20px 0;
+    text-transform: uppercase; /* Adds a bold statement */
+    letter-spacing: 2px; /* Slightly space out the letters for a clean look */
+    border-bottom: 2px solid #C8AE7E; /* Adds a nice underline for emphasis */
+    padding-bottom: 10px;
+}
+#featured-products
+{
+    background:#F5F5DD;
+    
+
+}
+.product-grid {
+   
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+ 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   
+}
+
+
+.product-item   {
+    
+    transform: scale(0.8); /* Start from smaller size */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Smooth zoom and fade effect */
+    
+    background-color:#eae3c9;
+    
+    border-radius: 8px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    margin: 15px;
+    transition: transform 0.4s ease;
+          
+}
+.product-item h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #C8AE7E; 
+    margin: 10px 0;
+    text-align: center;
+}
+
+.product-item p {
+    font-family: 'Open Sans', sans-serif; /* A contrasting, clean font */
+    font-size: 1em;
+    font-weight: 400;
+    color: #666; /* Softer shade for the price */
+    text-align: center;
+    margin: 5px 0;
+}
+
+
+.product-item:hover {
+    transform: scale(2.5);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background-color: #d3c1a0 ;
+    zoom: normal;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  
+}
+
+.product-item img:hover {
+    transform: scale(1.05);
+}
+.add-to-cart-btn {
+    background:#d2bd96; /* Gradient background */
+    color: #191970; /* White text */
+    padding: 14px 24px; /* Comfortable padding */
+    border: none; /* Remove border */
+    border-radius: 30px; /* Rounded corners */
+    font-size: 13px; /* Larger text */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer on hover */
+    position: relative; /* For animation */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    overflow: hidden; /* To hide the expanding background effect */
+}
+
+.add-to-cart-btn .cart-icon {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 13px; /* Increase icon size */
+    transition: transform 0.3s; /* Smooth transition for the icon */
+}
+
+.add-to-cart-btn:hover {
+    background: #AFEEEE; /* Reverse gradient on hover */
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Increased shadow on hover */
+}
+
+.add-to-cart-btn:focus {
+    outline: none; /* Remove default outline */
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.95); /* Scale down on click */
+}
+
+.add-to-cart-btn:hover .cart-icon {
+    transform: scale(1.2); /* Enlarge icon on hover */
+}
+
+/* Animation for the button */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Animation on hover */
+.add-to-cart-btn:hover {
+    animation: bounce 0.5s; /* Bounce effect */
+}
+/* Hover Effect for Product Item */
+.product-item:hover img {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Scroll Animation for Product Item (Zoom-In and Fade-In) */
+.product-item.visible {
+    opacity: 1; /* Make the product visible */
+    transform: scale(1); /* Zoom to normal size */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Smooth zoom and fade-in */
+}
+
+/* Categories Section */
+/* Categories Section Styles */
+/* General Styles */
+#categories {
+    padding: 40px;
+    background-color: #F5F5DD; /* Background color */
+}
+
+#categories h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #C8AE7E; /* Text color */
+    margin-bottom: 40px;
+}
+#categories h3
+{
+
+    text-align: center;
+    font-size: 1rem;
+    color: #C8AE7E; /* Text color */
+    margin-bottom: 40px;
+}
+
+/* Category Grid Container */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Category Item */
+.category-item {
+    opacity: 0; /* Initially hidden */
+    transform: scale(0.8); /* Start from smaller size */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Smooth zoom and fade effect */
+    text-align: center;
+    background-color: #EAE3C9; /* Item background color */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for a more dynamic feel */
+}
+
+/* Category Item Image */
+.category-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+/* Hover Effect for Category Item */
+.category-item:hover img {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Scroll Animation for Category Item (Zoom-In and Fade-In) */
+.category-item.visible {
+    opacity: 1; /* Make the category visible */
+    transform: scale(1); /* Zoom to normal size */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Smooth zoom and fade-in */
+}
+
+
+/* Sale Grid */
+#latest-arrivals
+{
+    background:#F5F5DC;
+
+}
+.sale-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sale-item {
+    background-color:#F5F5DC;
+    transform: scale(0.8); /* Start from smaller size */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Smooth zoom and fade effect */
+   
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sale-item:hover {
+    transform: translateY(-10px);
+    background-color: #d3c2a2 ;
+    transform: scale(1.1); /* Scales the div to 1.1 times its size */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.sale-item img {
+    width: 100%;
+    transition: transform 0.3s ease;
+    
+}
+
+Hover Effect for Sale Item */
+.sale-item:hover img {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Scroll Animation for Sale Item (Zoom-In and Fade-In) */
+.sale-item.visible {
+    opacity: 1; /* Make the product visible */
+    transform: scale(1); /* Zoom to normal size */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Smooth zoom and fade-in */
+}
+
+/* Product Details */
+.sale-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 15px 0;
+}
+
+.sale-item p {
+    font-size: 1.2rem;
+    color: #F5F5DD;
+    margin: 10px 0;
+}
+
+.sale-item p del {
+    color: #191970;
+    margin-right: 10px;
+}
+
+.add-to-cart-btn {
+    display: inline-block;
+    background-color: #d2bd96;
+    color:#F5F5DD;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #F5F5DD; 
+    color: #C8AE7E;
+    transform: scale(1.05);
+}
+
+.cart-icon {
+    margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sale-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sale-item {
+        width: 90%;
+    }
+}
+
+
+
+
+/* Sign-Up Section Styles */
+/* Signup Section Styling */
+#signup {
+    background: #eae3c9;
+    padding: 50px 20px;
+    text-align: center;
+    
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#signup h2 {
+    font-size: 2em;
+    color:midnightblue;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+/* Form Container */
+/* Form Container with Animation */
+#signup form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Label Styling with Animation */
+#signup label {
+    font-size: 1.2em;
+    color: midnightblue;
+    margin-bottom: 5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Input Field Styling with Hover and Focus Animations */
+#signup input[type="email"] {
+    width: 90%;
+    max-width: 100%;
+    padding: 12px 15px;
+    font-size: 1em;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 0.8s ease-out;
+}
+
+/* Input Hover and Focus Effects */
+#signup input[type="email"]:hover {
+    transform: scale(1.03);
+}
+
+#signup input[type="email"]:focus {
+    border-color:#AFEEEE ;
+    box-shadow: 0 0 8px rgba(247, 126, 83, 0.3);
+    transform: scale(1.05);
+}
+
+/* Placeholder Text Styling */
+#signup input[type="email"]::placeholder {
+    color: #aaa;
+    font-size: 0.95em;
+    font-style: italic;
+    opacity: 1;
+    animation: fadeInPlaceholder 1.2s ease-out;
+}
+
+/* Label Animation on Focus */
+#signup input[type="email"]:focus + label,
+#signup input[type="email"]:not(:placeholder-shown) + label {
+    color: midnightblue;
+    font-weight: 700;
+    transform: translateY(-10px);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInPlaceholder {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Button Styling */
+#signup button[type="submit"] {
+    background-color:#d2bd96;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#signup button[type="submit"]:hover {
+    background-color: #F5F5DC;
+    transform: scale(1.05);
+    color: #C8AE7E;
+   
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact Section Styles */
+/* Contact Section Styling */
+#contact {
+    background: #F5F5DC;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#contact h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Form Container */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Label Styling */
+#contact label {
+    font-size: 1.2em;
+    color: midnightblue;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Input and Textarea Styling */
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    width: 90%;
+    max-width: 100%;
+    padding: 12px 15px;
+    font-size: 1em;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 0.8s ease-out;
+}
+
+#contact textarea {
+    border-radius: 20px;
+    height: 100px;
+    resize: vertical;
+}
+
+/* Hover and Focus Effects for Inputs */
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact textarea:hover {
+    transform: scale(1.03);
+}
+
+#contact input[type="text"]:focus,
+#contact input[type="email"]:focus,
+#contact textarea:focus {
+    border-color: midnightblue;
+    box-shadow: 0 0 8px rgba(247, 126, 83, 0.3);
+    transform: scale(1.05);
+}
+
+/* Placeholder Text Styling */
+#contact input[type="text"]::placeholder,
+#contact input[type="email"]::placeholder,
+#contact textarea::placeholder {
+    color: #aaa;
+    font-size: 0.95em;
+    font-style: italic;
+    animation: fadeInPlaceholder 1.2s ease-out;
+}
+
+/* Label Animation on Focus */
+#contact input[type="text"]:focus + label,
+#contact input[type="email"]:focus + label,
+#contact textarea:focus + label,
+#contact input[type="text"]:not(:placeholder-shown) + label,
+#contact input[type="email"]:not(:placeholder-shown) + label,
+#contact textarea:not(:placeholder-shown) + label {
+    color: midnightblue;
+    font-weight: 700;
+    transform: translateY(-10px);
+}
+
+/* Button Styling */
+#contact button[type="submit"] {
+    background-color:#E0FFFF;
+    color: #AFEEEE;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#contact button[type="submit"]:hover {
+    background-color:#E0FFFF;
+    transform: scale(1.05);
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInPlaceholder {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Cart Section Styling */
+#cart {
+    background: #F5F5DC;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#cart h2 {
+    font-size: 2em;
+    color: #d2bd96;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Cart Item Styling */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 15px;
+    background-color: #eae3c9;
+    
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Increased transition duration */
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Image Styling */
+.cart-item img {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease; /* Transition for image scaling */
+}
+
+/* Product Name and Price Styling */
+.cart-item p {
+    margin: 0;
+    color: #d2bd96;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Button Styling */
+.cart-item button {
+
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #d2bd96;
+    background-color: white;
+    border: 2px solid #d2bd96;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+    }
+
+   .cart-item button ::after{
+    content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: #d2bd96;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.6s ease;
+       
+   } 
+
+/* Hover Effects for Cart Item */
+.cart-item:hover {
+    color: white;
+    background-color: #d2bd96;
+    transform: translateY(-4px);
+}
+.cart-item button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.cart-item button:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Hover Effects for Image */
+.cart-item:hover img {
+    transform: scale(1.1); /* Scale image up on hover */
+}
+
+/* Hover Effects for Text */
+.cart-item:hover p {
+    color: white; /* Change text color on hover */
+}
+
+/* Hover Effects for Button */
+.cart-item button:hover {
+    background-color: #d2bd96;
+    color: white;
+    transform: scale(1.05); /* Slightly increase button size on hover */
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+footer {
+    background-color: #333;
+    color: #f7f7f7;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #d2bd96;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #f7f7f7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #d2bd96;
+}
+
+.newsletter input[type="email"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
+    width: 70%;
+}
+
+.newsletter button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #d2bd96;
+    color: #333;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #b89c75;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons li {
+    list-style-type: none;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85em;
+    color: #bbb;
+    margin-top: 20px;
+}

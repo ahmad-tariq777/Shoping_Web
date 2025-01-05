@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+  
+</head>
+<style>
+    
+footer {
+    background-color: #333;
+    color: #f7f7f7;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #d2bd96;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #f7f7f7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #d2bd96;
+}
+
+.newsletter input[type="email"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
+    width: 70%;
+}
+
+.newsletter button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #d2bd96;
+    color: #333;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #b89c75;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons li {
+    list-style-type: none;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85em;
+    color: #bbb;
+    margin-top: 20px;
+}
+
+    /* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #F5F5DC;
+  color: #333;
+}
+
+/* Contact Section Styling */
+#contact {
+  background: rgba(234, 227, 201, 0.8); /* Light beige glass effect */
+  backdrop-filter: blur(10px);
+  padding: 60px 30px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin: 50px auto;
+  max-width: 600px;
+}
+
+#contact h2 {
+  font-size: 2.5em;
+  color: #d2bd96;
+  margin-bottom: 20px;
+  font-weight: bold;
+  animation: fadeIn 1.2s ease;
+}
+
+/* Form Styling */
+#contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  animation: slideIn 1s ease-out;
+}
+
+/* Label Styling */
+#contact label {
+  font-size: 1.1em;
+  color: #d2bd96;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Input and Textarea Styling */
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+  width: 90%;
+  padding: 15px;
+  font-size: 1em;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  background: #F5F5DC;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+/* Hover and Focus Effects */
+#contact input:hover,
+#contact textarea:hover {
+  box-shadow: 0 5px 10px rgba(210, 189, 150, 0.3);
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: #d2bd96;
+  box-shadow: 0 4px 12px rgba(210, 189, 150, 0.3);
+  transform: scale(1.02);
+}
+
+/* Placeholder Styling */
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: #AAA;
+  font-style: italic;
+}
+
+/* Label Animation on Focus */
+#contact input:focus + label,
+#contact input:not(:placeholder-shown) + label,
+#contact textarea:focus + label,
+#contact textarea:not(:placeholder-shown) + label {
+  color: #d2bd96;
+  font-weight: bold;
+  transform: translateY(-10px);
+}
+
+/* Button Styling */
+#contact button {
+  background: linear-gradient(135deg, #d2bd96, #eae3c9);
+  color: #333;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(210, 189, 150, 0.2);
+}
+
+#contact button:hover {
+  background: linear-gradient(135deg, #eae3c9, #d2bd96);
+  transform: scale(1.05);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+<body>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Your Name">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="Your Email">
+            <label for="message">Your Message</label>
+            <textarea id="message" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+</body>
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <!-- Company Information -->
+        <div class="footer-section company-info">
+            <h4>About Us</h4>
+            <p>Welcome to our fashion world! We offer the latest trends and styles to make you look and feel great. Quality, style, and affordability are our top priorities.</p>
+        </div>
+
+        <!-- Customer Service Links -->
+        <div class="footer-section customer-service">
+            <h4>Customer Service</h4>
+            <ul>
+                <li><a href="#">Help & FAQs</a></li>
+                <li><a href="#">Shipping & Delivery</a></li>
+                <li><a href="#">Return & Exchange</a></li>
+                <li><a href="#">Track Your Order</a></li>
+            </ul>
+        </div>
+
+        <!-- Company Policies Links -->
+        <div class="footer-section company-info">
+            <h4>Company Info</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">Career Opportunities</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+            <h4>Stay Updated</h4>
+            <p>Sign up for our newsletter to receive exclusive offers and the latest fashion news.</p>
+            <form action="#" method="POST">
+                <input type="email" name="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <ul class="social-icons">
+                <li><a href="#"><img src="Icons/facebook.png" alt="Facebook"></a></li>
+                <li><a href="#"><img src="Icons/instagram.png" alt="Instagram"></a></li>
+                <li><a href="#"><img src="Icons/twitter.png" alt="Twitter"></a></li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Shopping Website. All rights reserved.</p>
+    </div>
+</footer>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+}
+
+.about-section {
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #F5F5DD, #C8AE7E);
+
+  color: #fff;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.about-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-in;
+}
+
+.about-description {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease-in;
+}
+
+.about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.2); /* Transparent background */
+    color: #333;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 1s ease-in;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.about-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  font-size: 1em;
+  color: #555;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+    background-color: #333;
+    color: #f7f7f7;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #d2bd96;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #f7f7f7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #d2bd96;
+}
+
+.newsletter input[type="email"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
+    width: 70%;
+}
+
+.newsletter button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #d2bd96;
+    color: #333;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #b89c75;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons li {
+    list-style-type: none;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85em;
+    color: #bbb;
+    margin-top: 20px;
+}
+
+
+  </style>
+  <script>
+    // Optional: Add some interactivity on load
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll('.about-card');
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, index * 200);
+  });
+});
+
+  </script>
+</head>
+<body>
+  <section class="about-section">
+    <div class="about-container">
+      <h2>About Our Store</h2>
+      <p class="about-description">Welcome to our store! We offer a unique selection of trendy, high-quality products that are carefully chosen to fit your style. Our mission is to bring the latest fashion and lifestyle products to your doorstep with ease and affordability.</p>
+      <div class="about-cards">
+        <div class="about-card">
+          <h3>Our Vision</h3>
+          <p>We envision a world where everyone has access to top-notch products at great prices. Fashion should be accessible, fun, and inspiring!</p>
+        </div>
+        <div class="about-card">
+          <h3>Our Mission</h3>
+          <p>Our mission is to provide an excellent shopping experience by ensuring the highest quality standards and an exceptional selection for all our customers.</p>
+        </div>
+        <div class="about-card">
+          <h3>Why Choose Us?</h3>
+          <p>With quality products, an easy shopping experience, and fast shipping, we ensure your satisfaction every step of the way. Let us help you elevate your style!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <!-- Company Information -->
+        <div class="footer-section company-info">
+            <h4>About Us</h4>
+            <p>Welcome to our fashion world! We offer the latest trends and styles to make you look and feel great. Quality, style, and affordability are our top priorities.</p>
+        </div>
+
+        <!-- Customer Service Links -->
+        <div class="footer-section customer-service">
+            <h4>Customer Service</h4>
+            <ul>
+                <li><a href="#">Help & FAQs</a></li>
+                <li><a href="#">Shipping & Delivery</a></li>
+                <li><a href="#">Return & Exchange</a></li>
+                <li><a href="#">Track Your Order</a></li>
+            </ul>
+        </div>
+
+        <!-- Company Policies Links -->
+        <div class="footer-section company-info">
+            <h4>Company Info</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">Career Opportunities</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+            <h4>Stay Updated</h4>
+            <p>Sign up for our newsletter to receive exclusive offers and the latest fashion news.</p>
+            <form action="#" method="POST">
+                <input type="email" name="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <ul class="social-icons">
+                <li><a href="#"><img src="Icons/facebook.png" alt="Facebook"></a></li>
+                <li><a href="#"><img src="Icons/instagram.png" alt="Instagram"></a></li>
+                <li><a href="#"><img src="Icons/twitter.png" alt="Twitter"></a></li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Shopping Website. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
